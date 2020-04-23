@@ -9,6 +9,8 @@ bool checkPowerOfTwo(int n){
     if(sum <= 1)
         return true;
     return false;
+
+    // return !(N & (N - 1));
 }
 int main(){
     int n;
