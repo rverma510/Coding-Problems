@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define mod 1000000007
 int numCodes(int *n, int size){
     if(size == 0 || size == 1){
         return 1;
@@ -26,9 +27,13 @@ int numCodesItr(int *input, int size){{
     output[0] = 1;
     output[1] = 1;
     for(int i = 2; i <= size; i++){
-        output[i] = output[i - 1];
-        if(input[i - 2] * 10 + input[i - 1] <= 26)
+        if(input[i - 1] == 0)
+            output[i] = 0;
+        else
+            output[i] = output[i - 1];
+        if(input[i - 2] == 1 || (input[i - 2] == 2 && input[i - 1] < 7))
             output[i] += output[i - 2];
+        output[i] %= mod; 
     } 
     int ans = output[size];
     delete [] output;
