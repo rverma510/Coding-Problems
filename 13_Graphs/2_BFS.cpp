@@ -1,26 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void print(int **edges, int n, bool *visited) {
-    for (int i = 0; i < n; i++) {
-        if (visited[i])
-            continue;
-        queue<int> q;
-        q.push(i);
-        visited[i] = true;
-        while(!q.empty()) {
-            int v = q.front();
-            q.pop();
-            cout<<v<<" ";
-            for (int j = 0; j < n; j++) {
-                if (!visited[j] && edges[v][j]) {
-                    q.push(j);
-                    visited[j] = true;
-                }
+void print(int **edges, int n, int i, bool *visited) {
+    queue<int> q;
+    q.push(i);
+    visited[i] = true;
+    while(!q.empty()) {
+        int v = q.front();
+        q.pop();
+        cout<<v<<" ";
+        for (int j = 0; j < n; j++) {
+            if (!visited[j] && edges[v][j]) {
+                q.push(j);
+                visited[j] = true;
             }
         }
     }
     cout<<endl;
+}
+
+void BFS(int **edges, int n) {
+    bool *visited = new bool[n];
+    for (int i = 0; i < n; i++) {
+        visited[i] = false;
+    }
+    for (int i = 0; i < n; i++) {
+        if (visited[i])
+            continue;
+        print(edges, n, i, visited);
+    }
+    delete [] visited;
 }
 
 int main() {
@@ -39,10 +48,10 @@ int main() {
         edges[f][s] = 1;
         edges[s][f] = 1;
     }
-    bool *visited = new bool[n];
-    for (int i = 0; i < n; i++) {
-        visited[i] = false;
+    BFS(edges, n);
+    for(int i = 0; i < n; i++) {
+        delete [] edges[i];
     }
-    print (edges, n, visited);
+    delete [] edges;
     return 0;
 }
