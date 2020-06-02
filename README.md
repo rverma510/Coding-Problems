@@ -1,1 +1,1 @@
-# Coding-Ninjas-CP
+# Coding-Problems
