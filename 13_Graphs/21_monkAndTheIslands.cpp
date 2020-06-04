@@ -9,6 +9,7 @@ class Graph {
         Graph(int v);
         void addEdge(int u, int v, int w);
         void shortestPath(int s);
+        int bfs(int s);
 };
 
 Graph::Graph(int V) {
@@ -42,6 +43,29 @@ void Graph::shortestPath(int src) {
     }
     cout<<dist[V - 1]<<endl;
 }
+
+int Graph::bfs(int src) {
+    vector<int> level(V, 0);
+    vector<bool> visited(V, false);
+    queue<int> q;
+    q.push(src);
+    visited[src] = true;
+    level[src] = 0;
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+        for (auto i: adj[u]) {
+            int v = i.first;
+            if (!visited[v]) {
+                q.push(v);
+                visited[v] = true; 
+                level[v] = level[u] + 1;
+            }
+        }
+    }
+    return level[V - 1];
+}
+
  
 int main() {
     int t;
@@ -55,7 +79,7 @@ int main() {
             cin>>x>>y;
             graph.addEdge(x - 1, y - 1, 1);
         }
-        graph.shortestPath(0);
+        cout<<graph.bfs(0)<<endl;
     }
     return 0;
 }
