@@ -1,3 +1,11 @@
+/*
+The default behavior of both copy constructor and assignment operator is to perform a shallow copy.
+Fortunately, in C++, the copying process can be controlled by defining a tailored copy constructor 
+as well as a copy assignment operator. The copying process must be closely linked to the respective 
+resource release mechanism and is often referred to as copy-ownership policy. Tailoring the copy 
+constructor according to your memory management policy is an important choice that we often need to 
+make when designing a class. There are several well-known copy-ownership policies.
+*/
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
