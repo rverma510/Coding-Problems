@@ -15,10 +15,37 @@ bool recursiveMatching(string s, int i, string p, int j) {
     }
 }
 
+bool isMatch(string s, string p) {
+    int m = s.size();
+    int n = p.size();
+    vector<vector<bool>> dp(m + 1, vector<bool>(n + 1, 0));
+    dp[0][0] = 1;
+    for (int i = 1; i <= n; i++) {
+        if (p[i - 1] == '*')
+            dp[0][i] = dp[0][i - 2];
+    }
+    for (int i = 1; i <= m; i++) {
+        for (int j = 1; j <= n; j++) {
+            if (s[i - 1] == p[j - 1] || p[j - 1] == '.') {
+                dp[i][j] = dp[i - 1][j - 1];
+            }
+            else if (p[j - 1] == '*') {
+                dp[i][j] = dp[i][j - 2];
+                if (p[j - 2] == '.' || s[i - 1] == p[j - 2])
+                    dp[i][j] = dp[i][j] | dp[i - 1][j];
+            }
+            else {
+                dp[i][j] = 0;
+            }
+        }
+    }
+    return dp[m][n];
+}
+
 int main() {
     string s, p;
     getline(cin, s);
     getline(cin, p);
-    cout << recursiveMatching(s, 0, p, 0) << endl;
+    cout << isMatch(s, p) << endl;
     return 0;
 }
