@@ -1,2 +1,5 @@
 // AdHoc
 https://www.codechef.com/problems/RGAME
+
+// Dynamic Prog.
+https://www.codechef.com/problems/CHRL4 (DP + Sliding Win + log)
