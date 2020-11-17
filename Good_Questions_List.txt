@@ -6,3 +6,4 @@ https://www.codechef.com/problems/CHRL4 (DP + Sliding Win + log)
 
 // Bit Manipulatiom
 https://codeforces.com/problemset/problem/1438/D
+https://codeforces.com/contest/1438/problem/E (Binary Search related concept also)
