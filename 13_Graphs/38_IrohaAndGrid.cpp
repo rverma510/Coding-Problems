@@ -20,30 +20,75 @@ typedef pair<ll, ll> pll;
 const int mod = 1e9 + 7;
 
 const double pi = acos(-1.0);
-const int maxn = 1e6 + 10;
+const int maxn = 2e5 + 10;
 const int dir[][2]={{0, 1}, {1, 0}, {0, -1}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
 
-int h, w, a, b;
-map<pii, int> m;
-
-int solve(int x, int y) {
-    if (x == h && y == w)
-        return 1;
-    if (x > h || y > w) 
-        return 0;
-    else if ((x >= h - a + 1 && x <= h) && (y >= 1 && y <= b))
-        return 0;
-    if (m.find({x, y}) != m.end()) 
-        return m[{x, y}];
-    ll ans1 = solve(x + 1, y);
-    ll ans2 = solve(x, y + 1);
-    return m[{x, y}] = (ans1 + ans2) % mod;
+int add(int x, int y) {
+    x += y;
+    while (x >= mod) {
+        x -= mod;
+    }
+    while (x < 0) {
+        x += mod;
+    }
+    return x;
 }
 
+int sub(int x, int y) {
+    if (x - y < 0) {
+        return x - y + mod;
+    }
+    return x - y;
+}
+
+int mul(int x, int y) {
+    return (x * 1ll * y) % mod;
+}
+
+int power(int x, int y, int p) {
+    int res = 1;
+    while (y > 0) {
+        if (y & 1) {
+            res = (res * 1ll * x) % p;
+        }
+        x = (x * 1ll * x) % p;
+        y /= 2;
+    }
+    return res;
+}
+
+int fact[maxn], invfact[maxn];
+void init() {
+    fact[0] = fact[1] = 1;
+    int i;
+    for (i = 2; i < maxn; i++) {
+        fact[i] = (fact[i - 1] * 1ll * i) % mod;
+    }
+    i--;
+    invfact[i] = power(fact[i], mod - 2, mod);
+    for (i--; i >= 0; i--) {
+        invfact[i] = (invfact[i + 1] * 1ll * (i + 1)) % mod;
+    }
+}
+
+int h, w, a, b;
+
+int ncr(int n, int r) {
+    if (r < 0 || n < 0 || r > n)
+        return 0;
+    return mul(fact[n], mul(invfact[n - r], invfact[r]));
+}
 
 int main() {
     speed;
+    init();
     cin >> h >> w >> a >> b;
-    cout << solve(1, 1) % mod << endl;
+    ll ans = 0;
+    for (int i = 0; i < h - a; i++) {
+        int w1 = ncr(i + b - 1, i);
+        int w2 = ncr(h - i + w - b - 2, h - i - 1);
+        ans = add(ans, mul(w1, w2));
+    }
+    cout << ans << endl;
     return 0;
 }
