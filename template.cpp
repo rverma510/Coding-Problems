@@ -57,44 +57,48 @@ int power(int x, int y, int p) {
     return res;
 }
 
-// int fact[maxn], invfact[maxn];
-// void init() {
-//     fact[0] = fact[1] = 1;
-//     int i;
-//     for (i = 2; i < maxn; i++) {
-//         fact[i] = (fact[i - 1] * 1ll * i) % mod;
-//     }
-//     i--;
-//     invfact[i] = power(fact[i], mod - 2, mod);
-//     for (i--; i >= 0; i--) {
-//         invfact[i] = (invfact[i + 1] * 1ll * (i + 1)) % mod;
-//     }
-// }
+int fact[maxn], invfact[maxn];
+void init() {
+    fact[0] = fact[1] = 1;
+    int i;
+    for (i = 2; i < maxn; i++) {
+        fact[i] = (fact[i - 1] * 1ll * i) % mod;
+    }
+    i--;
+    invfact[i] = power(fact[i], mod - 2, mod);
+    for (i--; i >= 0; i--) {
+        invfact[i] = (invfact[i + 1] * 1ll * (i + 1)) % mod;
+    }
+}
 
-// int ncr(int n, int r) {
-//     if (r < 0 || n < 0 || r > n)
-//         return 0;
-//     return mul(fact[n], mul(invfact[n - r], invfact[r]));
-// }
+int ncr(int n, int r) {
+    if (r < 0 || n < 0 || r > n)
+        return 0;
+    return mul(fact[n], mul(invfact[n - r], invfact[r]));
+}
 
-int t, n;
-int arr[maxn];
+ll t, n;
+ll arr[maxn];
+
+void solve() {
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    ll ans = 0;
+    /*
+        Logic
+                Goes
+                    Here
+    */
+    cout << ans << "\n";
+}
 
 int main() {
     speed;
     cin >> t;
     while (t--) {
-        cin >> n;
-        for (int i = 0; i < n; i++) {
-            cin >> arr[i];
-        }
-        ll ans = 0;
-        /*
-            Logic
-                 Goes
-                     Here
-        */
-        cout << ans << "\n";
+        solve();
     }
     return 0;
 }
