@@ -10,6 +10,8 @@ https://codeforces.com/contest/1438/problem/E (Binary Search related concept als
 
 // trees
 https://codeforces.com/contest/1438/problem/F (Interactive)
+https://codeforces.com/problemset/problem/1098/A
+https://codeforces.com/problemset/problem/685/B
 
 // Number Theory
 https://codeforces.com/problemset/problem/576/A
