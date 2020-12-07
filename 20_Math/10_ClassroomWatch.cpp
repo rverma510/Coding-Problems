@@ -40,6 +40,7 @@ void solve() {
     for (int i = 1; i <= 100 && i <= n; i++) {
         if (sum_digit(n - i) == i) res.pb(n - i);
     }
+    sort(res.begin(), res.end());
     cout << res.size() << endl; 
     for (auto i: res) cout << i << endl;
 }
