@@ -16,3 +16,6 @@ https://codeforces.com/problemset/problem/685/B
 
 // Number Theory
 https://codeforces.com/problemset/problem/576/A
+
+// Math
+https://codeforces.com/problemset/problem/553/A (combinations)
