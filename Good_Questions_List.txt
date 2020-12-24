@@ -19,3 +19,6 @@ https://codeforces.com/problemset/problem/576/A
 
 // Math
 https://codeforces.com/problemset/problem/553/A (combinations)
+
+// Graphs
+https://codeforces.com/contest/510/problem/C
