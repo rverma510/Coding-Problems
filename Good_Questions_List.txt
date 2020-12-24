@@ -22,3 +22,6 @@ https://codeforces.com/problemset/problem/553/A (combinations)
 
 // Graphs
 https://codeforces.com/contest/510/problem/C
+
+// Strings
+https://codeforces.com/problemset/problem/486/C
