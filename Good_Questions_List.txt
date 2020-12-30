@@ -5,6 +5,7 @@ https://www.codechef.com/problems/RGAME
 https://www.codechef.com/problems/CHRL4 (DP + Sliding Win + log)
 https://codeforces.com/contest/567/problem/C
 https://codeforces.com/problemset/problem/607/A
+https://codeforces.com/problemset/problem/870/C
 
 // Bit Manipulatiom
 https://codeforces.com/problemset/problem/1438/D
