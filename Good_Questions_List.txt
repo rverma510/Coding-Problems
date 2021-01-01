@@ -15,6 +15,7 @@ https://codeforces.com/contest/1438/problem/E (Binary Search related concept als
 https://codeforces.com/contest/1438/problem/F (Interactive)
 https://codeforces.com/problemset/problem/1098/A
 https://codeforces.com/problemset/problem/685/B
+https://codeforces.com/contest/1466/problem/D
 
 // Number Theory
 https://codeforces.com/problemset/problem/576/A
