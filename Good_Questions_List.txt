@@ -29,3 +29,6 @@ https://codeforces.com/contest/510/problem/C
 
 // Strings
 https://codeforces.com/problemset/problem/486/C
+
+// Binary Search
+https://codeforces.com/contest/1472/problem/E
