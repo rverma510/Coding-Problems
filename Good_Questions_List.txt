@@ -23,6 +23,7 @@ https://codeforces.com/contest/1469/problem/D
 
 // Math
 https://codeforces.com/problemset/problem/553/A (combinations)
+https://codeforces.com/contest/1471/problem/D
 
 // Graphs
 https://codeforces.com/contest/510/problem/C
