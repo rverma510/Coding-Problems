@@ -16,7 +16,7 @@ Triplet extendedEuclid(int a, int b) {
         return res;
     } 
 
-    Triplet ans = extendedEuclid(a, a % b);
+    Triplet ans = extendedEuclid(b, a % b);
     Triplet res;
     res.gcd = ans.gcd;
     res.x = ans.y;
