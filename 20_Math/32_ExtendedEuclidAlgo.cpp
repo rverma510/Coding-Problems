@@ -6,7 +6,6 @@ struct Triplet {
 };
 
 Triplet extendedEuclid(int a, int b) {
-    if (a < b) return extendedEuclid(b, a);
 
     if (b == 0) {
         Triplet res;
@@ -25,9 +24,9 @@ Triplet extendedEuclid(int a, int b) {
 }
 
 int main() {
-    int a = 42;
-    int b = 18;
+    int a = 2;
+    int b = 3;
     Triplet res =  extendedEuclid(a, b);
-    cout << "X and y of ax + by = gcd(a, b) : " << res.x << ' ' << res.y << '\n';
+    cout << "X and y of ax + by = gcd(a, b) : " << res.x << ' ' << res.y << ' ' << res.gcd << '\n';
     return 0;
 }
