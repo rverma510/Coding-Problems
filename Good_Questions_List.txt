@@ -21,6 +21,7 @@ https://codeforces.com/contest/1466/problem/D
 // Number Theory
 https://codeforces.com/problemset/problem/576/A
 https://codeforces.com/contest/1469/problem/D
+./22_NumberTheory/17_IncomeOnNthDay.cpp
 
 // Math
 https://codeforces.com/problemset/problem/553/A (combinations)
