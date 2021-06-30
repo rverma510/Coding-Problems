@@ -22,7 +22,6 @@ https://codeforces.com/contest/1466/problem/D
 https://codeforces.com/problemset/problem/576/A
 https://codeforces.com/contest/1469/problem/D
 ./22_NumberTheory/17_IncomeOnNthDay.cpp
-./22_NumberTheory/19_GCDExtreme.cpp
 
 // Math
 https://codeforces.com/problemset/problem/553/A (combinations)
