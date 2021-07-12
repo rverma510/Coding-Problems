@@ -36,6 +36,7 @@ https://codeforces.com/problemset/problem/486/C
 
 // Binary Search
 https://codeforces.com/contest/1472/problem/E
+https://codeforces.com/contest/1547/problem/F (. + Segment Tree)
 
 // Fenwick Tree
 ./25_FenwickTree/4_OrderedSet.cpp
