@@ -40,3 +40,4 @@ https://codeforces.com/contest/1547/problem/F (. + Segment Tree)
 
 // Fenwick Tree
 ./25_FenwickTree/4_OrderedSet.cpp
+./25_FenwickTree/7_INCSEQ.cpp (. + DP)
