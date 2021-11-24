@@ -1,0 +1,133 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define speed ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define rf freopen("in.txt", "r", stdin);
+#define wf freopen("out.txt", "w", stdout);
+
+#define fi first
+#define se second
+#define pb push_back
+#define mp make_pair
+#define all(x) (x).begin(), (x).end()
+#define endl '\n'
+#define mem(a, b) memset(a, b, sizeof(a))
+
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+const int mod = 1e9 + 7;
+
+const double pi = acos(-1.0);
+const int maxn = 1e3 + 10;
+const int dir[][2]={{0, 1}, {1, 0}, {0, -1}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+
+int add(int x, int y) {
+    x += y;
+    while (x >= mod) {
+        x -= mod;
+    }
+    while (x < 0) {
+        x += mod;
+    }
+    return x;
+}
+
+int sub(int x, int y) {
+    if (x - y < 0) {
+        return x - y + mod;
+    }
+    return x - y;
+}
+
+int mul(int x, int y) {
+    return (x * 1ll * y) % mod;
+}
+
+int power(int x, int y, int p) {
+    int res = 1;
+    while (y > 0) {
+        if (y & 1) {
+            res = (res * 1ll * x) % p;
+        }
+        x = (x * 1ll * x) % p;
+        y /= 2;
+    }
+    return res;
+}
+
+int fact[maxn], invfact[maxn];
+void init() {
+    fact[0] = fact[1] = 1;
+    int i;
+    for (i = 2; i < maxn; i++) {
+        fact[i] = (fact[i - 1] * 1ll * i) % mod;
+    }
+    i--;
+    invfact[i] = power(fact[i], mod - 2, mod);
+    for (i--; i >= 0; i--) {
+        invfact[i] = (invfact[i + 1] * 1ll * (i + 1)) % mod;
+    }
+}
+
+int ncr(int n, int r) {
+    if (r < 0 || n < 0 || r > n)
+        return 0;
+    return mul(fact[n], mul(invfact[n - r], invfact[r]));
+}
+
+int t, n, m;
+int arr[maxn][maxn];
+
+int solveHelper(int i, int j) {
+    if (i < 0 || i >= n || j < 0 || j >= m || arr[i][j] == 16) return 0;
+    // cout << i << "  " << j << endl;
+    int ans = 1;
+    int tmp = arr[i][j];
+    arr[i][j] = 16;
+    if (!(tmp & 8)) {
+        ans += solveHelper(i - 1, j);
+    }
+    if (!(tmp & 4)) {
+        ans += solveHelper(i, j + 1);
+    }
+    if (!(tmp & 2)) {
+        ans += solveHelper(i + 1, j);
+    }
+    if (!(tmp & 1)) {
+        ans += solveHelper(i, j - 1);
+    }
+    return ans;
+}
+
+void solve() {
+    cin >> n >> m;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cin >> arr[i][j];
+        }
+    }
+    vector<int> res;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (arr[i][j] != 16) {
+                res.pb(solveHelper(i, j));
+            }
+        }
+    }
+    sort(all(res), greater<int>());
+    for (int r: res) {
+        cout << r << ' ';
+    }
+    cout << endl;
+}
+
+int main() {
+    speed;
+    t = 1;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
