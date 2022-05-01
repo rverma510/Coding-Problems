@@ -72,9 +72,15 @@ TreeNode* input() {
         while (n--) {
             TreeNode *node = q.front(); q.pop();
             cin >> val;
-            if (val != -1) node -> left = new TreeNode(val);
+            if (val != -1) {
+                node -> left = new TreeNode(val);
+                q.push(node -> left);
+            }
             cin >> val;
-            if (val != -1) node -> right = new TreeNode(val);        
+            if (val != -1) {
+                node -> right = new TreeNode(val);
+                q.push(node -> right);
+            }        
         }
     }
     return root;
