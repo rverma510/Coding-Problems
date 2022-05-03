@@ -12,9 +12,33 @@ int helper(vector<vector<int>> &triangle, int i, int j, int n, vector<vector<int
     return dp[i][j] = triangle[i][j] + ans;
 }
 int minimumTotal(vector<vector<int>>& triangle) {
+    // int n = triangle.size();
+    // vector<vector<int>> dp(n, vector<int>(n, -1));
+    // return helper(triangle, 0, 0, n, dp);
     int n = triangle.size();
-    vector<vector<int>> dp(n, vector<int>(n, -1));
-    return helper(triangle, 0, 0, n, dp);
+    vector<vector<int>> dp(2, vector<int>(n, -1));
+    dp[0][0] = triangle[0][0];
+    bool pos = true;
+    for (int i = 1; i < n; i++) {
+        for (int j = 0; j <= i; j++) {
+            if (j == 0) {
+                dp[pos][j] = triangle[i][j] + dp[!pos][j];
+            }
+            else if (j == i) {
+                dp[pos][j] = triangle[i][j] + dp[!pos][j - 1];
+            }
+            else {
+                dp[pos][j] = triangle[i][j] + min(dp[!pos][j - 1], dp[!pos][j]);
+            }
+        }
+        pos = !pos;
+    }
+    int ans = INT_MAX;
+    pos = !pos;
+    for  (int i = 0; i < n; i++) {
+        ans = min(ans, dp[pos][i]);
+    }
+    return ans;
 }
 
 int main() {
